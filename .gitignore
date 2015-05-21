@@ -1,0 +1,16 @@
+*~
+.*
+Debug/*
+cmake/*
+_build*
+CMakeCache.txt
+CMakeFiles/*
+*.cmake
+Makefile
+config.*
+python/CMakeFiles/*
+*.pc
+src/CMakeFiles/*
+src/dynamic_graph/sot/rh_cop_interface/*
+src/*.so
+include/*
