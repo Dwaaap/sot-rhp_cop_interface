@@ -1,0 +1,29 @@
+<package>
+  <description brief="sot-rh_cop">
+
+     Interface/controller for task executive in RoboHow Context.
+
+  </description>
+  <author>Kevin Chappellet</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url></url>
+  <!--  depend package="std_msgs" -->
+  <depend package="actionlib"/>
+  <!-- depend package="actionlib_msgs" -->
+  <depend package="rh_cop_msgs" />
+  <depend package="iai_control_msgs" />
+  <depend package="tf" />
+  <depend package="tf_conversions" />
+  <depend package="expressiongraph" />
+  <depend package="expressiongraph_lightcontext" />
+  <depend package="expressiongraph_geom_relations" />
+  
+  <!-- The following are needed for the ROS-SMACH based client -->
+  <depend package="rospy" />
+  <depend package="smach" />
+  <depend package="smach_ros" />
+
+</package>
+
+

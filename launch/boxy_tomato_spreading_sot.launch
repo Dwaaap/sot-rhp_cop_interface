@@ -1,0 +1,27 @@
+<launch>
+   <node name="addTransformService" type="addTransformService.py" pkg="sot-rh_cop_interface" output="screen"/>
+ 
+ <node name="client" type="node_delay.sh" args="3 rh_cop_boxy boxy_tomato_spreading_sot.py" pkg="rh_cop" output="screen" />
+ 
+ <!-- local URDF, only for dev purposes. Later remove and use the one below -->
+ <rosparam command="load" file="$(find rh_cop_boxy)/yaml/boxyconfig_tomato.yaml" ns="server_config" />
+ <rosparam ns="server_config" subst_value="true" command="load" param="urdf_file">$(find rh_cop_boxy)/robots/boxy_description.urdf</rosparam>
+ <node name="server" type="server.py" pkg="sot-rh_cop_interface" output="screen"/>
+ 
+ <!-- Additional Extra frames -->
+ <node name="tf_table" pkg="tf" type="static_transform_publisher" args="0.5 -0.2 0.0 -0.500 0.004 0.002 0.866 triangle_right_arm_link table 10" />
+ <node name="tf_spoon" pkg="tf" type="static_transform_publisher" args="0.0 0.0 0.23 0 0 0 right_arm_flange_link spoon 10" />
+  
+  <node name="table" pkg="dynamic_graph_bridge" type="tf_publisher">
+    <param name="frame" type="string" value="table" />
+    <param name="child_frame" type="string" value="odom" />
+    <param name="topic" type="string" value="table" />
+  </node>
+  
+  <node name="spoon" pkg="dynamic_graph_bridge" type="tf_publisher">
+    <param name="frame" type="string" value="spoon" />
+    <param name="child_frame" type="string" value="odom" />
+    <param name="topic" type="string" value="spoon" />
+  </node>
+  
+</launch>

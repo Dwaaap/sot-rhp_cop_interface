@@ -1,0 +1,21 @@
+<launch>
+ <node name="client" type="node_delay.sh" args="3 rh_cop boxy_armtest_sot.py" pkg="rh_cop" output="screen">
+    <param name="reset_sot" type="boolean" value="True"/>
+  </node>
+ <node name="server" type="server.py" pkg="rh_cop" output="screen"/>
+  <node name="addTransformService" type="addTransformService.py" pkg="rh_cop" output="screen"/>
+
+ 
+  <!-- Additional Extra frames -->
+ <node name="tf_table" pkg="tf" type="static_transform_publisher" 
+  args="0.5 0.0 0.0 0.0 0.0 0.0 /triangle_right_arm_link /table 10" />
+ 
+  <!-- define environment key elements -->
+  <node name="table" pkg="dynamic_graph_bridge" type="tf_publisher">
+    <param name="frame" type="string" value="table" />
+    <param name="child_frame" type="string" value="odom" />
+    <param name="topic" type="string" value="table" />
+  </node>
+  
+</launch>
+<!-- <node name="client" type="node_delay.sh" args="3 rh_cop boxy_armtest_sot.py" pkg="rh_cop" output="screen"> -->
