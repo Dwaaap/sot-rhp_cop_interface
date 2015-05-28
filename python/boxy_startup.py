@@ -75,18 +75,3 @@ robot.currentTasks=[]
 robot.removeTasks=[]
 robot.plug={}
 
-expg = FeaturePointToLineDistance('expg')
-taskExpg = Task('taskExpg')
-taskExpg.controlGain.value = 1
-opPoint1 = 'right-wrist'
-opPoint2 = 'right-wrist'
-plug(robot.dynamic.signal(opPoint1),expg.signal('w_T_o1'))
-plug(robot.dynamic.signal('J'+opPoint1),expg.signal('w_J_o1'))
-plug(robot.dynamic.signal(opPoint2),expg.signal('w_T_o2'))
-plug(robot.dynamic.signal('J'+opPoint2),expg.signal('w_J_o2'))
-taskExpg.add(expg.name)
-expg.reference.value = (0,)
-solver.push(taskExpg)
-#solver.sot.remove('taskExpg')
-
-
