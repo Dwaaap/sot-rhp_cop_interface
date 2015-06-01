@@ -1,0 +1,18 @@
+mapping={}
+mapping['left_arm_1_link'] = 'left_arm_0_joint'
+mapping['left_arm_2_link'] = 'left_arm_1_joint'
+mapping['left_arm_3_link'] = 'left_arm_2_joint'
+mapping['left_arm_4_link'] = 'left_arm_3_joint'
+mapping['left_arm_5_link'] = 'left_arm_4_joint'
+mapping['left_arm_6_link'] = 'left_arm_5_joint'
+mapping['left_arm_7_link'] = 'left_arm_6_joint'
+mapping['left_arm_flange_joint'] = ''
+mapping['right_arm_1_link'] = 'right_arm_0_joint'
+mapping['right_arm_2_link'] = 'right_arm_1_joint'
+mapping['right_arm_3_link'] = 'right_arm_2_joint'
+mapping['right_arm_4_link'] = 'right_arm_3_joint'
+mapping['right_arm_5_link'] = 'right_arm_4_joint'
+mapping['right_arm_6_link'] = 'right_arm_5_joint'
+mapping['right_arm_7_link'] = 'right_arm_6_joint'
+mapping['right_arm_flange_joint'] = ''
+
